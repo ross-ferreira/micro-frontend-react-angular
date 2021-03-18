@@ -1,0 +1,46 @@
+ul {
+    list-style-type: none;
+}
+
+.nav-logo{
+    width:40px;
+    height:40px;
+    margin-right: 10px;
+}
+
+nav .brand-logo {
+    display: flex ;
+    align-items: center;
+    padding-left: 2rem ;
+}
+
+nav {
+    background-color: #1688BA ;
+}
+
+.card {
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card-header {
+text-align: center;
+}
+
+.card-action {
+    margin: auto;
+}
+
+.card-title {
+text-decoration: underline;
+}
+
+.progress{
+    position: absolute;
+    width:50%;
+    left: 25%;
+    top:50%;
+}

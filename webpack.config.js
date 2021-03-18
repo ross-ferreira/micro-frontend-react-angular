@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 
 module.exports = {
@@ -34,28 +34,42 @@ module.exports = {
 				test: /\.tsx?$/,
 				loader: 'ts-loader',
 			},
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader'],
+			},
+			{
+				test: /\.svg$/,
+				use: [
+					{
+						loader: 'svg-url-loader',
+						options: {
+							limit: 10000,
+						},
+					},
+				],
+			},
+			{
+				test: /\.(jpg|png)$/,
+				use: {
+				  loader: 'url-loader',
+				},
+			  },
 		],
 	},
 	node: {
-		fs: 'empty'
+		fs: 'empty',
 	},
 	resolve: {
-		modules: [
-			__dirname,
-			'node_modules',
-		],
+		modules: [__dirname, 'node_modules'],
 	},
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'common-dependencies',
 		}),
-		new ContextReplacementPlugin(
-			/(.+)?angular(\\|\/)core(.+)?/,
-			path.resolve(__dirname, '../src')
-			)
+		new ContextReplacementPlugin(/(.+)?angular(\\|\/)core(.+)?/, path.resolve(__dirname, '../src')),
 	],
 	devtool: 'source-map',
-	externals: [
-	],
+	externals: [],
 };
