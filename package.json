@@ -1,5 +1,6 @@
 {
   "name": "single-spa-example",
+  "homepage": "https://ross-ferreira.github.io/micro-frontend-react-angular/",
   "scripts": {
     "start": "webpack-dev-server --port 9090",
     "build": "webpack --config webpack.config.js -p"
